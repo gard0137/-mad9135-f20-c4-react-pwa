@@ -3,7 +3,7 @@
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
-/*   forgot to switch branch */
+
 }
 
 
@@ -46,6 +46,7 @@ nav{
   border-radius: 50%;
   /* fixing wrong branch commit */
 }
+
 
 @keyframes App-logo-spin {
   from {
