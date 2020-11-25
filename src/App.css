@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+
 }
 
 
@@ -36,6 +37,14 @@ nav{
 
 .App-link {
   color: #61dafb;
+}
+#mainImage {
+  width: 100px;
+  border: 1px solid rgb(189, 26, 26);
+  padding: 10px;
+  margin: 2rem;
+  border-radius: 50%;
+  /* fixing wrong branch commit */
 }
 
 
