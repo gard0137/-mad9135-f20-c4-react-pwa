@@ -1,26 +1,22 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button, Card, Row, Col, CardTitle} from 'react-materialize';
+import 'materialize-css';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <nav><div>First Page</div><div>Second Page</div></nav>
+
+     <h1>First Page</h1>
+     <img src="./leaf.png" alt="Leaf" id="mainImage"/>
+
+   
     </div>
+   
   );
 }
 
 export default App;
+
