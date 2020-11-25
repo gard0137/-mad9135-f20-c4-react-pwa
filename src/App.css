@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+/*   forgot to switch branch */
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -11,6 +16,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+nav{
+  display: flex !important;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .App-header {
@@ -27,6 +38,14 @@
 .App-link {
   color: #61dafb;
 }
+#mainImage {
+  width: 100px;
+  border: 1px solid rgb(189, 26, 26);
+  padding: 10px;
+  margin: 2rem;
+  border-radius: 50%;
+  /* fixing wrong branch commit */
+}
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +55,5 @@
     transform: rotate(360deg);
   }
 }
+
+
