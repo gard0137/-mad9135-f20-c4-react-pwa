@@ -11,7 +11,17 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import {
+  NetworkFirst,
+  StaleWhileRevalidate,
+  CacheFirst,
+} from 'workbox-strategies';
+
+
+// Used for filtering matches based on status code, header, or both
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+// Used to limit entries in cache, remove entries after a certain period of time
+
 
 clientsClaim();
 
@@ -20,6 +30,34 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
+
+
+
+
+
+// Cache images with a Cache First strategy
+registerRoute(
+  // Check to see if the request's destination is style for an image
+  ({ request }) => request.destination === 'image',
+  // Use a Cache First caching strategy
+  new CacheFirst({
+    // Put all cached files in a cache named 'images'
+    cacheName: 'images',
+    plugins: [
+      // Ensure that only requests that result in a 200 status are cached
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+      // Don't cache more than 50 items, and expire them after 30 days
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+      }),
+    ],
+  }),
+);
+
+
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
