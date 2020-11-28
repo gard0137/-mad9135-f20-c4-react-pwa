@@ -1,5 +1,5 @@
-import logo from './logo.svg'
-import './App.css'
+
+/* import '../componens/../App.css' */
 import { Button, Card, Row, Col, CardTitle } from 'react-materialize'
 import 'materialize-css'
 

@@ -8,9 +8,30 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import Details from './Details'
+import Details from './components/Details'
+import CurrencyList from './components/CurrencyList'
+import React, { useEffect, useState } from 'react';
 
 function App () {
+
+
+  const [currencies, setCurrencies] = useState()
+
+
+  useEffect(() => {
+    fetchData()
+    .then(
+      d => {
+        setCurrencies(d)  
+       })
+    .catch(console.log)
+  }, [])
+
+
+  console.log(currencies)
+
+
+
   return (
     <Router>
       <div className='App'>
@@ -25,12 +46,12 @@ function App () {
 
         <Switch>
           <Route exact path='/'>
-            <h1>First Page</h1>
-            <img src='./leaf.png' alt='Leaf' id='mainImage' />
+          <img src='./coin.png' alt='Leaf' id='mainImage' />
+          <CurrencyList currencies={currencies} />
           </Route>
 
           <Route exact path='/details'>
-            <Details />
+            <Details  />
           </Route>
         </Switch>
       </div>
@@ -39,3 +60,13 @@ function App () {
 }
 
 export default App
+
+export async function fetchData() {
+  const url = "https://api.coinlore.net/api/tickers/"
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error(response.statusText)
+  }
+  const data = await response.json()
+  return data
+}
