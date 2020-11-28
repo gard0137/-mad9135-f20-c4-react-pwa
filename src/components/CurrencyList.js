@@ -32,21 +32,24 @@ function CurrencyList ({currencies}) {
        <div>
          {/*   <p>{element.symbol} - {element.name} - ${element.price_usd}</p> */}
 
-         <NavLink to={"/details/"}>
+         <NavLink to={"/details/"+element.nameid}>
 
            <Card 
           key={name}
           actions={[
            
           ]}
-          to={"/userinfo/" + element.id}
+          to={"/details/"+element.nameid}
           
           title= {element.symbol + " - " +  JSON.stringify(element.name).replace(/['"]+/g, '' )}
           >
   
        
 
-        <p>{"$" + JSON.stringify(element.price_usd).replace(/['"]+/g, '')}</p>
+        <p> Price {"$" + JSON.stringify(element.price_usd).replace(/['"]+/g, '')}</p>
+        <p> 1h Change: {JSON.stringify(element.percent_change_1h).replace(/['"]+/g, '')} %</p>
+        <p> 24h Change: {JSON.stringify(element.percent_change_24h).replace(/['"]+/g, '')} %</p>
+        <p> 7 day Change: {JSON.stringify(element.percent_change_7d).replace(/['"]+/g, '')} %</p>
    
        
         </Card>

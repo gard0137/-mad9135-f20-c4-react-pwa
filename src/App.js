@@ -39,9 +39,6 @@ function App () {
           <NavLink className='navLink' to='/'>
             Home
           </NavLink>
-          <NavLink className='navLink' to='/details'>
-            Details
-          </NavLink>
         </nav>
 
         <Switch>
@@ -50,8 +47,8 @@ function App () {
           <CurrencyList currencies={currencies} />
           </Route>
 
-          <Route exact path='/details'>
-            <Details  />
+          <Route path="/details/:nameid">
+            <Details currencies={currencies} />
           </Route>
         </Switch>
       </div>
