@@ -51,6 +51,13 @@ registerRoute(
   })
 )
 
+//Stale while revalidate strategy for json
+registerRoute(
+  'https://api.coinlore.net/api/tickers/',
+  new StaleWhileRevalidate(),
+);
+
+
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell

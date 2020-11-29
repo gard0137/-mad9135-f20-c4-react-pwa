@@ -67,3 +67,11 @@ export async function fetchData() {
   const data = await response.json()
   return data
 }
+
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  //Prevent chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault()
+  deferredPrompt = e;
+})
