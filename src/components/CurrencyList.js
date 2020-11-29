@@ -46,7 +46,7 @@ function CurrencyList ({currencies}) {
   
        
 
-        <p> Price {"$" + JSON.stringify(element.price_usd).replace(/['"]+/g, '')}</p>
+        <p>{"$" + JSON.stringify(element.price_usd).replace(/['"]+/g, '')}</p>
         <p> 1h Change: {JSON.stringify(element.percent_change_1h).replace(/['"]+/g, '')} %</p>
         <p> 24h Change: {JSON.stringify(element.percent_change_24h).replace(/['"]+/g, '')} %</p>
         <p> 7 day Change: {JSON.stringify(element.percent_change_7d).replace(/['"]+/g, '')} %</p>
