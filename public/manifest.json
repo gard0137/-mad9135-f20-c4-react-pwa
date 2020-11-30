@@ -1,6 +1,6 @@
 {
-  "short_name": "React PWA",
-  "name": "Paired-Programming-Example",
+  "short_name": "CoinView",
+  "name": "CoinView - Crypto Price Watcher",
   "icons": [
     {
       "src": "favicon.ico",
