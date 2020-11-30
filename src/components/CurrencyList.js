@@ -9,9 +9,26 @@ import {
     Switch
   } from 'react-router-dom'
 
-function CurrencyList ({currencies}) {
+function CurrencyList ({currencies, showSnackBar}) {
 
-    console.log(currencies)
+
+
+    if(JSON.parse(localStorage.getItem('counter'))){
+        let counter = JSON.parse(localStorage.getItem('counter'))
+         counter = counter + 1
+        localStorage.setItem('counter', JSON.stringify(counter))
+
+    }else{
+        localStorage.setItem('counter', JSON.stringify(1))
+    }
+
+    if(JSON.parse(localStorage.getItem('counter')) == 4) {
+        console.log("counter is 4!")
+        showSnackBar()
+    }
+
+  
+
     
     if(!currencies) return (
         <main> 
@@ -21,7 +38,7 @@ function CurrencyList ({currencies}) {
 
   return(
         <main>
-              <h4>Crypto Currencies</h4>
+              <h4>CoinView</h4>
       {currencies.data.map((element, name) => {
         return (
             
